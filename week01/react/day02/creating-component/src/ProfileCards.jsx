@@ -16,8 +16,8 @@ const ProfileCard = ({
         <div>
           <strong>Skills:</strong>
           <ul>
-            {skills.map((skill, i) => (
-              <li key={i}>{skill}</li>
+            {skills.map((skill, index) => (
+              <li key={index}>{skill}</li>
             ))}
           </ul>
         </div>
