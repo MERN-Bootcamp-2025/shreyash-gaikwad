@@ -1,0 +1,19 @@
+.profile-card {
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  max-width: 250px;
+}
+
+.profile-card h2, .profile-card h4 {
+  margin: 0.5rem 0;
+}
+
+.profile-card.detailed {
+  background-color: #f0f8ff;
+}
+
+.profile-card.compact {
+  background-color: #f9f9f9;
+}
