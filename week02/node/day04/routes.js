@@ -36,7 +36,7 @@ const routes = (req,res) =>{
                 console.log(message);
     
                 const decodeMessage =decodeURIComponent(message).replace(/\+/g,' ');
-                fs.writeFileSync('message.txt',decodeMessage);
+                fs.writeFileSync('async.txt',decodeMessage);
     
                 res.statusCode=302;
                 res.setHeader('Location','/');
