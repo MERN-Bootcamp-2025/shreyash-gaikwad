@@ -1,0 +1,65 @@
+const http = require('http');
+const fs = require('fs');
+
+const server = http.createServer((req,res)=>{
+    // console.log(req.url,req.body,req.headers);
+    const url=req.url;
+    const method=req.method;
+    
+    if(url === '/'){
+        console.log(url);
+       res.write(`
+        <html>
+            <header>
+                <title>Hello Welcome to Node.js</title>
+            </header>
+            <body>
+                <form action="/message" method="POST">
+                    <input type="text" name="message"/>
+                    <button type="submit">Send</button>
+                </form>
+            </body>
+        </html>
+        `);
+        return res.end();
+    }
+
+    if(url === '/message' && method ==='POST'){
+        const body =[];
+        req.on('data',(chunk)=>{
+            body.push(chunk);
+            console.log(chunk);
+        });
+
+        //added return here because we cannot set header after return of res.end 
+        return req.on('end',()=>{
+            const parseBody = Buffer.concat(body).toString();  
+            // console.log(parseBody);
+            const message = parseBody.split('=')[1];
+            console.log(message);
+
+            const decodeMessage =decodeURIComponent(message).replace(/\+/g,' ');
+            // fs.writeFileSync('message.txt',decodeMessage);
+            //writeFileSync means our server(node) will wait till this syncronous code get fully executed if the code or writing a file takes lot of time then go for async writing which has 3 parrameters
+            // __filename, data and function
+
+            fs.writeFile('syncAndasync.txt',decodeMessage,(error)=>{
+                res.statusCode=302;
+                res.setHeader('Location','/');
+                res.end();
+            })
+
+            
+        }
+    );
+    res.setHeader('Content-Type','text/html');
+    res.write(`<h1>hello i am shreyash gaikwad</h1>`);
+    res.end();
+    }
+
+})
+
+
+
+
+server.listen(3000);

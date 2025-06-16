@@ -1,0 +1,13 @@
+{
+  "name": "day04",
+  "version": "1.0.0",
+  "description": "node js course",
+  "license": "ISC",
+  "author": "shreyash gaikwad",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  }
+}
