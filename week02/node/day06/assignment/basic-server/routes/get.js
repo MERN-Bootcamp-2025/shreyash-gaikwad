@@ -26,4 +26,5 @@ route.post('/submitRes',(req,res,next)=>{
     res.send(`Thank you ${name}`);
 })
 
+
 module.exports=route;

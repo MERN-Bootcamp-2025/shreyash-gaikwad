@@ -9,7 +9,7 @@ const port=3000;
 
 //for parsing the body
 app.use(express.urlencoded({extended:false}));
-
+app.use(express.json());
 
 app.get('/',(req, res, next) => {
   console.log(`[${req.method}] ${req.url} - ${new Date().toISOString()}`);
