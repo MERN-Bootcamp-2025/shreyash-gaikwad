@@ -105,7 +105,7 @@ app.use(body.urlencoded({extended:false}));
 // })
 
 
-//filtering the routing path
+//filtering the routing
 app.use('/admin' , adminRoutes);
 app.use(shopeRoutes);
 
